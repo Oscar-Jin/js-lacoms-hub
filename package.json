@@ -2,7 +2,7 @@
   "name": "react-lacoms-hub",
   "version": "1.0.0",
   "description": "the updated lacoms-hub",
-  "main": "index.js",
+  "main": "/src/main.js",
   "private": true,
   "scripts": {
     "build": "webpack",
