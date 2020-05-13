@@ -12,12 +12,35 @@ const babel = {
   }
 }
 
-const css = {
-  test: /\.css$/,
-  use: ['style-loader', 'css-loader']
+const scss = {
+  test: /\.(scss)$/,
+  use: [{
+    loader: 'style-loader', // inject CSS to page
+  }, {
+    loader: 'css-loader', // translates CSS into CommonJS modules
+  }, {
+    loader: 'postcss-loader', // Run post css actions
+    options: {
+      plugins: function () { // post css plugins, can be exported to postcss.config.js
+        return [require('precss'), require('autoprefixer')]
+      }
+    }
+  }, {
+    loader: 'sass-loader' // compiles Sass to CSS
+  }]
 }
 
-const rules = [babel, css]
+const img = {
+  test: /\.(png|svg|jpg|gif)$/,
+  use: ['file-loader']
+}
+
+const url = {
+  test: /\.(png|jpg|gif)$/i,
+  use: ['url-loader']
+}
+
+const rules = [babel, scss, url]
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── config 👨‍🔧 ───┐
@@ -40,10 +63,10 @@ const devtool = 'inline-source-map'
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
 module.exports = {
-  entry, 
+  entry,
   output,
   devtool,
   devServer,
-  module: {rules}
+  module: { rules }
 }
 // ────────────────────────────────────────────────────────────────────────┘

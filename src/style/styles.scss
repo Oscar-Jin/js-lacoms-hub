@@ -1,0 +1,136 @@
+// ──────────────────────────────────────────────────────────── @import ───┐
+@import "~bootstrap/scss/bootstrap";
+// ────────────────────────────────────────────────────────────────────────┘
+
+.lacoms-navbar {
+  @extend .navbar;
+  @extend .navbar-expand-lg;
+  @extend .navbar-light;
+  @extend .bg-light;
+  @extend .p-1;
+
+  img {
+    @extend .pr-2;
+    @extend .mb-1;
+    width: 30px;
+  }
+}
+
+.lacoms-version {
+  font-size: 0.7rem;
+}
+
+.lacoms-navitem {
+  @extend .nav-item;
+  @extend .nav-link;
+  @extend .p-1;
+  @extend .pb-0;
+  // border: 1px solid blue;
+  @extend .mx-1;
+
+  .title {
+    @extend .d-block;
+    @extend .text-center;
+    margin-top: 2px;
+    font-size: 0.7rem;
+    // border: 1px solid blue;
+  }
+}
+
+
+
+.lacoms-sitepreview-card {
+  @extend .card;
+  @extend .overflow-hidden;
+  opacity: 90%;
+  border-radius: 10px;
+  border: 2px solid rgba(245, 245, 245, 0.5);
+  transition: 0.25s;
+
+  .preview {
+    height: 13rem;
+    overflow: hidden;
+    transition: 0.25s;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: left top;
+      transition: 0.25s;
+    }
+  }
+}
+
+.lacoms-sitepreview-card:hover {
+  @extend .shadow;
+  opacity: 100%;
+  transition: 0.25s;
+}
+
+.test-restrict-width {
+  @extend .col-12;
+  @extend .col-sm-6;
+  @extend .col-lg-4;
+  @extend .mb-3;
+}
+
+.FavoritesPage {
+  background: linear-gradient(
+    0deg,
+    rgba(48, 116, 255, 0.18110994397759106) 0%,
+    rgba(0, 212, 255, 0.20351890756302526) 100%
+  );
+}
+
+
+.Favorites {
+  @extend .p-0;
+  @extend .mt-5;
+  @extend .shadow-sm;
+  overflow: hidden;
+  border: 0px solid transparent;
+  background-color: white;
+  border-radius: 15px;
+
+}
+
+.SectionTitle {
+  @extend .py-3;
+  @extend .px-4;
+  @extend .mb-4;
+  @extend .shadow-sm;
+  // border-bottom: 2px solid rgba(73, 191, 214, 0.204);
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+.Apps {
+  @extend .Favorites
+}
+
+.app-button {
+  @extend .btn;
+  @extend .btn-lg;
+  @extend .text-center;
+  @extend .shadow-sm;
+  @extend .text-white;
+  width: 12rem;
+}
+
+
+// ────────────────────────────────────────────────────────── colors 🎨 ───┐
+.color-orange {
+  color: #fecb81;
+}
+.color-ash {
+  color: lightgray
+}
+.color-dodgerblue {
+  color: dodgerblue;
+}
+.color-red {
+  color: salmon
+}
+// ────────────────────────────────────────────────────────────────────────┘
