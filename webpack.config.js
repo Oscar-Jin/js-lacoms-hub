@@ -13,7 +13,7 @@ const babel = {
 }
 
 const scss = {
-  test: /\.(scss)$/,
+  test: /\.s?css$/,
   use: [{
     loader: 'style-loader', // inject CSS to page
   }, {

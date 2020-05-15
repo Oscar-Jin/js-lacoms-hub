@@ -3,41 +3,40 @@ import React from 'react'
 import { connect } from 'react-redux'
 /* ⬆NPM ⬇CUSTOM */
 import SectionTitle from './SectionTitle'
+import Card from './Card'
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
-const Apps = (props) => {
+const Experiments = (props) => {
   let section = {
-    title: "Apps",
-    subTitle: "作業に便利なアプリケーションたち",
-    favicon: "fab fa-app-store-ios color-dodgerblue",
-    enableAdd: true,
-    addButtonTargetId: "#addAppModal",
-    removeButtonTargetId: "#removeAppModal"
+    title: "Experiments",
+    subTitle: "金ちゃんが開発しているアプリや、思いつきで作った機能とか。主に技術検証用で「こういうのがあったらいいよねー」みたいなサンプルのようなもの。",
+    favicon: "fas fa-flask color-red",
+    enableAdd: false,
   }
 
-  let Apps = props.savedApps.map(app => (
-    <div key={JSON.stringify(app)} className="col-auto my-3">
-      <a className={"app-button " + app.buttonColor} href={app.url}>
-        <i className={"fa-3x w-100 p-1 " + app.favicon} /><br />
-        <span>{app.title}</span>
-      </a>
+  let Cards = props.experimentSites.map(site => (
+    <div className="col test-restrict-width" key={JSON.stringify(site)}>
+      <Card site={site} />
     </div>
   ))
 
-  let apps = (
-    <div className="container Apps">
-      <SectionTitle section={section} />
-      <div className="row justify-content-center my-3">
-        {Apps}
+  let favorites = (
+    <div className="container Favorites">
+      <div className="test-sectionTitle">
+        <SectionTitle section={section} />
       </div>
-    </div>
+
+      <div className="row px-4">
+        {Cards}
+      </div>
+    </div >
   )
 
-  return apps
+  return favorites
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default connect(state => state)(Apps)
+export default connect(state => state)(Experiments)
 // ────────────────────────────────────────────────────────────────────────┘

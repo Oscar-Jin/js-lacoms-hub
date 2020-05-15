@@ -7,7 +7,7 @@ import favicon from '../../public/img/favicon-180x180.png'
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
 const Navbar = (props) => {
-  let navItems = props.navItems ? props.navItems : [{
+  let navItems = [{
     title: "Favorites",
     icon: "fas fa-star fa-lg d-block mx-auto",
     path: "/"

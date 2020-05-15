@@ -82,6 +82,12 @@
   );
 }
 
+.ExperimentsPage {
+  height: 100vh;
+  background: rgb(249,188,255);
+  background: linear-gradient(190deg, rgba(249,188,255,0.3169642857142857) 0%, rgba(255,191,50,0.39539565826330536) 100%);
+}
+
 
 .Favorites {
   @extend .p-0;
@@ -107,7 +113,7 @@
 }
 
 .Apps {
-  @extend .Favorites
+  @extend .Favorites;
 }
 
 .app-button {
@@ -117,6 +123,57 @@
   @extend .shadow-sm;
   @extend .text-white;
   width: 12rem;
+}
+
+.site-title {
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
+  height: 100%;
+
+  .child-flex-item {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+}
+
+
+
+.removeSite-list-group-item {
+  @extend .list-group-item;
+  border-color: whitesmoke;
+
+  .left-display {
+    @extend .ml-2;
+    width: 80%;
+
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
+  }
+
+  .site-url {
+    @extend .m-0;
+    // color: rgb(48, 112, 155);
+    @extend .text-muted;
+    font-size: 0.4rem;
+  }
+
+  .site-createdBy {
+    @extend .m-0;
+    @extend .text-muted;
+    font-size: 0.8rem;
+  }
+
+  .right-remove {
+    border: 1px solid blue;
+    height: 100%;
+  }
 }
 
 
@@ -134,3 +191,26 @@
   color: salmon
 }
 // ────────────────────────────────────────────────────────────────────────┘
+
+.modal-content {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+
+// ───────────────────────────────────────────────────────── override 👨‍🚀───┐
+.col-form-label {
+  font-size: 1rem;
+}
+
+.form-control {
+  border-color: whitesmoke;
+}
+
+.github-picker {
+  @extend .border-light;
+  @extend .shadow-sm;
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
