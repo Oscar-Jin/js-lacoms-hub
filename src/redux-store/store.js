@@ -8,7 +8,9 @@ const favoriteSiteReducer = (state = [], action) => {
   // console.log(action)
   switch (action.type) {
     case "SYNC_STATE":
-      return [...action.payload.favoriteSites]
+      return action.payload.favoriteSites ?
+        [...action.payload.favoriteSites] :
+        state
     default:
       return state
   }
@@ -18,7 +20,9 @@ const savedAppsReducer = (state = [], action) => {
   // console.log(action)
   switch (action.type) {
     case "SYNC_STATE":
-      return [...action.payload.savedApps]
+      return action.payload.savedApps ?
+        [...action.payload.savedApps] :
+        state
     default:
       return state
   }
@@ -28,7 +32,9 @@ const instructorsReducer = (state = [], action) => {
   // console.log(action)
   switch (action.type) {
     case "SYNC_STATE":
-      return [...action.payload.instructors]
+      return action.payload.instructors ?
+        [...action.payload.instructors] :
+        state
     default:
       return state
   }
@@ -38,7 +44,9 @@ const experimentSitesReducer = (state = [], action) => {
   // console.log(action)
   switch (action.type) {
     case "SYNC_STATE":
-      return [...action.payload.experimentSites]
+      return action.payload.experimentSites ?
+        [...action.payload.experimentSites] :
+        state
     default:
       return state
   }
@@ -48,21 +56,39 @@ const shoutoutsReducer = (state = [], action) => {
   // console.log(action)
   switch (action.type) {
     case "SYNC_STATE":
-      return [...action.payload.shoutouts]
+      return action.payload.shoutouts ?
+        [...action.payload.shoutouts] :
+        state
     default:
       return state
   }
 }
 
-const shoutoutIndexReducer = (state = 0, action) =>  {
+const shoutoutIndexReducer = (state = 0, action) => {
   console.log(action)
   switch (action.type) {
     case "UPDATE_INDEX":
-      return action.payload.shoutoutIndex
+      return action.payload.shoutoutIndex ?
+        action.payload.shoutoutIndex :
+        state
     default:
       return state
   }
 }
+
+const morningAssemblyItemsReducer = (state = [], action) => {
+  // console.log(action)
+  switch (action.type) {
+    case "SYNC_STATE":
+      return action.payload.morningAssemblyItems ?
+        [...action.payload.morningAssemblyItems] :
+        state
+    default:
+      return state
+  }
+}
+
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ─────────────────────────────────────────────────────────── store 📦 ───┐
@@ -74,7 +100,8 @@ const store = createStore(
     instructors: instructorsReducer,
     experimentSites: experimentSitesReducer,
     shoutouts: shoutoutsReducer,
-    shoutoutIndex: shoutoutIndexReducer
+    shoutoutIndex: shoutoutIndexReducer,
+    morningAssemblyItems: morningAssemblyItemsReducer,
   }),
   composeEnhancers(applyMiddleware(thunk))
 )
