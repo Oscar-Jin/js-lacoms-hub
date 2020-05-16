@@ -16,7 +16,6 @@ export const syncStateAsync = () => {
 }
 
 export const updateFavoriteSitesAsync = (newFavoriteSites) => {
-  console.log("update favorite site async")
   return (dispatch) => {
     db.collection("settings").doc("public").update({
       favoriteSites: newFavoriteSites
@@ -25,11 +24,29 @@ export const updateFavoriteSitesAsync = (newFavoriteSites) => {
 }
 
 export const udateAppsAsync = (newApps) => {
-  console.log("update apps async")
   return (dispatch) => {
     db.collection("settings").doc("public").update({
       savedApps: newApps
     }) 
   }
 }
+
+export const updateShoutoutsAsync = (newShoutouts) => {
+  return (dispatch) => {
+    db.collection("settings").doc("public").update({
+      shoutouts: newShoutouts
+    }) 
+  }
+}
 // ────────────────────────────────────────────────────────────────────────┘ 
+
+// ───────────────────────────────────────────────────────── actions 🐙 ───┐
+export const updateShoutoutIndex = (index) => {
+  return {
+    type: "UPDATE_INDEX",
+    payload: {
+      shoutoutIndex: index
+    }
+  }
+}
+// ────────────────────────────────────────────────────────────────────────┘

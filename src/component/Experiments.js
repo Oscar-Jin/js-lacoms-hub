@@ -17,7 +17,7 @@ const Experiments = (props) => {
 
   let Cards = props.experimentSites.map(site => (
     <div className="col test-restrict-width" key={JSON.stringify(site)}>
-      <Card site={site} />
+      <Card site={site} type={"LINK"}/>
     </div>
   ))
 

@@ -14,18 +14,18 @@ import RemoveAppModal from '../component/RemoveAppModal'
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
 const FavoritesPage = (props) => {
   let favoritesPage = (
-    <div className="FavoritesPage">
-      <Navbar />
-      <Favorites />
-      <Apps />
-      <AddWebsiteModal />
-      <RemoveSiteModal />
-      <AddAppModal />
-      <RemoveAppModal />
-      <div className="pt-4 pb-1">
-        <p className="text-center text-light">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
+      <div className="FavoritesPage">
+        <Navbar />
+        <Favorites />
+        <Apps />
+        <AddWebsiteModal />
+        <RemoveSiteModal />
+        <AddAppModal />
+        <RemoveAppModal />
+        <div className="pt-4 pb-1">
+          <p className="text-center text-light">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
+        </div>
       </div>
-    </div>
   )
 
   return favoritesPage

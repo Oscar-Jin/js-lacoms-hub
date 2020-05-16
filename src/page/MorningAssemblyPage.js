@@ -1,20 +1,12 @@
 // ────────────────────────────────────────────────────────── import 📥 ───┐
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
-import moment from 'moment';
-
-import favicon from '../../public/img/favicon-180x180.png'
-import { updateShoutoutIndex } from '../redux-store/thunk';
-
-
-
+import $ from "jquery"
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
-const Navbar = (props) => {
-  let { shoutouts, shoutoutIndex } = props
-
+const MorningAssemblyPage = (props) => {
+  let [showRemoveButton, setShowRemoveButton] = useState(false)
 
   let navItems = [{
     title: "Favorites",
@@ -39,29 +31,15 @@ const Navbar = (props) => {
     </div>
   ))
 
-
-
-
-  let navbar = (
-    <nav className="lacoms-navbar sticky-top">
+  let Navbar = (
+    <nav className="morningAssembly-navbar sticky-top">
       <div className="container">
         <a className="navbar-brand" href="/">
           <span className="">
-            <img src={favicon}></img>
-            <span>LACOMS-HUB</span>
-            <sup className="badge badge-light lacoms-version ml-2">1.0.7</sup>
+            <span>LACOMS 朝礼ガイドブック</span>
+            <sup className="badge lacoms-version ml-2">2.1.0</sup>
           </span>
         </a>
-
-        <span id="clock">{moment().format('MMM[]D[  ]LT')}</span>
-
-
-          {/* {["apple", "bee"]} */}
-          {/* {Shoutouts[shoutoutIndex]} */}
-
-
-
-
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -73,13 +51,65 @@ const Navbar = (props) => {
       </div>
     </nav>
   )
-  
+
+  let onAddButtonClick = () => {
+    $(section.addButtonTargetId).modal('show')
+  }
+
+  let onRemoveButtonClick = () => {
+    $(section.removeButtonTargetId).modal('show')
+  }
+
+  let onMouseOver = () => {
+    console.log("mouse over")
+    setShowRemoveButton(true)
+  }
+
+  let onMouseLeave = () => {
+    console.log("mouse out")
+    setShowRemoveButton(false)
+  }
 
 
-  return navbar
+  let Title = (
+    <div className="d-flex justify-content-between align-items-end">
+      <div>
+      <h2 className="text-muted mt-5">おはようございます。本日の朝礼を始めましょう。</h2>
+      </div>
+      {
+        <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+          {showRemoveButton && <button className="btn btn-lg" id="removeButton" onClick={onRemoveButtonClick}>
+            <i className="fas fa-minus text-secondary"></i>
+          </button>}
+          <button className="btn btn-lg" id="addButton" onClick={onAddButtonClick}>
+            <i className="fas fa-plus text-secondary" />
+          </button>
+        </div>
+      }
+    </div>
+  )
+
+
+
+  let morningAssemblyPage = (
+    <div className="MorningAssemblyPage">
+      {Navbar}
+      <div className="container">
+        {Title}
+        <hr /><br />
+
+        <div className="pt-4 pb-1">
+          <p className="text-center text-light">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
+        </div>
+      </div>
+    </div>
+  )
+
+  return morningAssemblyPage
 }
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default connect(state => state)(Navbar)
+export default MorningAssemblyPage
 // ────────────────────────────────────────────────────────────────────────┘

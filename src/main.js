@@ -7,9 +7,12 @@ import AppRouter from './router/AppRouter'
 import store from './redux-store/store'
 import db from "./firebase/firestore"
 
+import moment from 'moment';
+
 import 'bootstrap'
 import './style/styles.scss'
-import { syncStateAsync } from './redux-store/thunk'
+import { syncStateAsync, updateShoutoutIndex } from './redux-store/thunk'
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ──────────────────────────────────────────────────────────── sync 🔥 ───┐
@@ -32,6 +35,22 @@ ReactDOM.render(App, document.getElementById("root"))
 
 
 
+// ─────────────────────────────────────────────────────── set interval ───┐
+setInterval(() => {
+  if ( document.getElementById("clock")) {
+    document.getElementById("clock").innerText = moment().format("MMM[]D[  ]LT")
+    console.log("tick tock")
+  }
+}, 1000) 
+
+// setInterval(() => {
+//   let { shoutouts, shoutoutIndex } = store.getState()
+//   shoutoutIndex < shoutouts.length - 1 ?
+//     store.dispatch(updateShoutoutIndex(shoutoutIndex + 1)) :
+//     store.dispatch(updateShoutoutIndex(0))
+// }, 8000)
+
+// ────────────────────────────────────────────────────────────────────────┘
 
 
 
@@ -136,6 +155,24 @@ ReactDOM.render(App, document.getElementById("root"))
 //         imgKey: "morningAssembly"
 //       }]
 //  })
+
+
+//  db.collection("settings").doc("public").update({
+//   shoutouts: [{
+//     dataToDisplay: moment().toDate(),
+//     content: "帰る前に勤務記録を記録してください！",
+//     createdBy: "高嶋",
+//     bgColor: "bg-success"
+//   }, {
+//     dataToDisplay: moment().toDate(),
+//     content: "アプリをいっぱいABUSEしてね！",
+//     createdBy: "金ちゃん",
+//     bgColor: "bg-primary"
+//   }]
+//  })
+
+
+
 
 
 // ────────────────────────────────────────────────────────────────────────┘

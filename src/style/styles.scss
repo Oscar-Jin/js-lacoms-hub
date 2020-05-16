@@ -16,6 +16,14 @@
   }
 }
 
+.morningAssembly-navbar {
+  @extend .navbar;
+  @extend .navbar-expand-lg;
+  @extend .navbar-dark;
+  @extend .bg-success;
+  @extend .p-1;
+}
+
 .lacoms-version {
   font-size: 0.7rem;
 }
@@ -36,8 +44,6 @@
     // border: 1px solid blue;
   }
 }
-
-
 
 .lacoms-sitepreview-card {
   @extend .card;
@@ -84,10 +90,13 @@
 
 .ExperimentsPage {
   height: 100vh;
-  background: rgb(249,188,255);
-  background: linear-gradient(190deg, rgba(249,188,255,0.3169642857142857) 0%, rgba(255,191,50,0.39539565826330536) 100%);
+  background: rgb(249, 188, 255);
+  background: linear-gradient(
+    190deg,
+    rgba(249, 188, 255, 0.3169642857142857) 0%,
+    rgba(255, 191, 50, 0.39539565826330536) 100%
+  );
 }
-
 
 .Favorites {
   @extend .p-0;
@@ -97,7 +106,6 @@
   border: 0px solid transparent;
   background-color: white;
   border-radius: 15px;
-
 }
 
 .SectionTitle {
@@ -139,10 +147,7 @@
     font-size: 2.8rem;
     text-align: center;
   }
-
 }
-
-
 
 .removeSite-list-group-item {
   @extend .list-group-item;
@@ -153,7 +158,7 @@
     width: 80%;
 
     text-overflow: ellipsis;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
   }
 
@@ -176,19 +181,18 @@
   }
 }
 
-
 // ────────────────────────────────────────────────────────── colors 🎨 ───┐
 .color-orange {
   color: #fecb81;
 }
 .color-ash {
-  color: lightgray
+  color: lightgray;
 }
 .color-dodgerblue {
   color: dodgerblue;
 }
 .color-red {
-  color: salmon
+  color: salmon;
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -197,7 +201,6 @@
   border: 1px solid transparent;
   overflow: hidden;
 }
-
 
 // ───────────────────────────────────────────────────────── override 👨‍🚀───┐
 .col-form-label {
@@ -214,3 +217,85 @@
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
+// ─────────────────────────────────────────────────────────── clock ⏱ ───┐
+#clock {
+  @extend .ml-2;
+  @extend .px-2;
+  min-width: fit-content;
+  color: rgba(168, 168, 168, 0.664);
+  font-size: 1rem;
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+// ───────────────────────────────────────────────────────── infobar 📟 ───┐
+#infobar {
+  @extend .px-2; 
+  background-color:rgba(30, 143, 255, 0.863);
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  color: whitesmoke;
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+// ────────────────────────────────────────────────────── css animation ───┐
+/* appear - on page load */
+.fade-appear {
+  opacity: 0;
+  // z-index: 1;
+}
+.fade-appear.fade-appear-active {
+opacity: 1;
+transition: opacity 100ms linear;
+}
+
+/* enter */
+.fade-enter {
+opacity: 0;
+z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 100ms linear;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms linear;
+}
+.fade-exit-done {
+opacity: 0;
+}
+
+/* slide enter */
+.slide-enter {
+opacity: 0;
+transform: scale(0.97) translateY(5px);
+z-index: 1;
+}
+.slide-enter.slide-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 3000ms linear 1000ms, transform 3000ms ease-in-out 1000ms;
+}
+
+/* slide exit */
+.slide-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  
+}
+.slide-exit.slide-exit-active {
+  opacity: 0;
+  transform: scale(0.97) translateY(5px);
+  transition: opacity 1500ms linear, transform 1500ms ease-out;
+}
+.slide-exit-done {
+opacity: 0;
+}
+// ────────────────────────────────────────────────────────────────────────┘

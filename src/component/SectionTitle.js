@@ -1,6 +1,7 @@
 // ────────────────────────────────────────────────────────── import 📥 ───┐
 import React, { useState } from 'react'
 import $ from "jquery"
+import { CSSTransition } from 'react-transition-group'
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -38,9 +39,11 @@ let SectionTitle = (props) => {
         {
           section.enableAdd &&
           <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
-            {showRemoveButton && <button className="btn btn-lg mb-2" id="removeButton" onClick={onRemoveButtonClick}>
-              <i className="fas fa-minus text-secondary"></i>
-            </button>}
+              <CSSTransition in={showRemoveButton} unmountOnExit timeout={200} classNames="fade" >
+                <button className="btn btn-lg mb-2" id="removeButton" onClick={onRemoveButtonClick}>
+                  <i className="fas fa-minus text-secondary"></i>
+                </button>
+              </CSSTransition>
             <button className="btn btn-lg mb-2" id="addButton" onClick={onAddButtonClick}>
               <i className="fas fa-plus text-secondary" />
             </button>
