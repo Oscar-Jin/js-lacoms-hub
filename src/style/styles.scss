@@ -299,3 +299,13 @@ z-index: 1;
 opacity: 0;
 }
 // ────────────────────────────────────────────────────────────────────────┘
+
+
+.list-group-hover {
+  color: #495057;
+}
+
+.list-group-hover:hover{
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+ z-index: 1;
+} 

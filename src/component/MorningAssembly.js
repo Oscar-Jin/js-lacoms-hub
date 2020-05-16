@@ -101,6 +101,50 @@ const MorningAssemblyTitle = (props) => {
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
+// ─────────────────────────────────────────────────────── Lit Group 🧱 ───┐
+const MorningAseemblyListGroup = (props) => {
+  let { morningAssemblyItems } = props
+
+  let AssemblyLists = morningAssemblyItems.map((item, index) => {
+    if (item.url) {
+      return (
+        <a href={item.url} className="list-group-item list-group-item-action list-group-hover " key={item.id}>
+          <div className="d-flex w-100 justify-content-between">
+            <h4 >{`${index + 1}. ${item.title}`}</h4>
+            <small className="text-primary">URL</small>
+          </div>
+          <p className="mb-1 text-muted">{item.subTitle}</p>
+          <small>　</small>
+        </a>
+      )
+    } else {
+      return (
+        <li className="list-group-item list-group-hover" key={item.id}>
+          <div className="d-flex w-100 justify-content-between ">
+            <h4>{`${index + 1}. ${item.title}`}</h4>
+            <small></small>
+          </div>
+          <p className="mb-1 text-muted">{item.subTitle}</p>
+          <small>　</small>
+        </li>
+      )
+    }
+  })
+
+  let morningAseemblyListGroup = (
+    <div className="MorningAseemblyListGroup">
+      <div className="list-group">
+       {AssemblyLists}
+      </div>
+    </div>
+  )
+
+  return morningAseemblyListGroup
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+
+
 // ─────────────────────────────────────────────────────── Container 🧱 ───┐
 const MorningAseembly = (props) => {
   let morningAseembly = (
@@ -109,6 +153,7 @@ const MorningAseembly = (props) => {
       <div className="container">
         <MorningAssemblyTitle />
         <hr /><br />
+        <MorningAseemblyListGroup morningAssemblyItems={props.morningAssemblyItems} />
       </div>
     </div>
   )
