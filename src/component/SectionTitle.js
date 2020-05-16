@@ -19,12 +19,10 @@ let SectionTitle = (props) => {
   }
 
   let onMouseOver = () => {
-    console.log("mouse over")
     setShowRemoveButton(true)
   }
 
   let onMouseLeave = () => {
-    console.log("mouse out")
     setShowRemoveButton(false)
   }
 

@@ -1,7 +1,9 @@
 // ────────────────────────────────────────────────────────── import 📥 ───┐
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group'
 import $ from "jquery"
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
@@ -61,12 +63,10 @@ const MorningAssemblyPage = (props) => {
   }
 
   let onMouseOver = () => {
-    console.log("mouse over")
     setShowRemoveButton(true)
   }
 
   let onMouseLeave = () => {
-    console.log("mouse out")
     setShowRemoveButton(false)
   }
 
@@ -74,13 +74,15 @@ const MorningAssemblyPage = (props) => {
   let Title = (
     <div className="d-flex justify-content-between align-items-end">
       <div>
-      <h2 className="text-muted mt-5">おはようございます。本日の朝礼を始めましょう。</h2>
+        <h2 className="text-muted mt-5">おはようございます。本日の朝礼を始めましょう。</h2>
       </div>
       {
         <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
-          {showRemoveButton && <button className="btn btn-lg" id="removeButton" onClick={onRemoveButtonClick}>
-            <i className="fas fa-minus text-secondary"></i>
-          </button>}
+          <CSSTransition in={showRemoveButton} unmountOnExit timeout={200} classNames="fade" >
+            <button className="btn btn-lg" id="removeButton" onClick={onRemoveButtonClick}>
+              <i className="fas fa-minus text-secondary"></i>
+            </button>
+          </CSSTransition>
           <button className="btn btn-lg" id="addButton" onClick={onAddButtonClick}>
             <i className="fas fa-plus text-secondary" />
           </button>
