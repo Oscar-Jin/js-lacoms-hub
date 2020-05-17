@@ -1,35 +1,32 @@
 // ────────────────────────────────────────────────────────── import 📥 ───┐
 import React from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Navbar from '../component/Navbar'
+import ShoutoutLists from '../component/ShoutoutLists'
+import AddShoutoutModal from '../component/AddShoutoutModal'
 
 
-import FavoritesPage from '../page/FavoritesPage';
-import ExperimentsPage from '../page/ExperimentsPage';
-import TasksPage from '../page/TasksPage';
-import NotFoundPage from '../page/404Page';
-import MorningAssemblyPage from '../page/MorningAssemblyPage';
-import ShoutoutsEditPage from '../page/ShoutoutsEditPage';
 
 // ────────────────────────────────────────────────────────────────────────┘
 
-// ─────────────────────────────────────────────────────────── setup 🏗 ───┐
-const AppRouter = (props) => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={FavoritesPage} exact={true} />
-        <Route path="/experiments" component={ExperimentsPage} exact={true} />
-        <Route path="/experiments/morning-assembly" component={MorningAssemblyPage} exact={true} />
-        <Route path="/tasks" component={TasksPage} exact={true} />
-        <Route path="/shoutouts" component={ShoutoutsEditPage} exact={true} />
 
-        <Route component={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
+// ─────────────────────────────────────────────────────────── setup 🏗 ───┐
+const ShoutoutsEditPage = (props) => {
+  let shoutoutsEditPage = (
+      <div className="ShoutoutsEditPage">
+        <Navbar />
+        <ShoutoutLists />
+        <AddShoutoutModal />
+        <div className="pt-4 pb-1">
+          <p className="text-center text-light">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
+        </div>
+      </div>
   )
+
+  return shoutoutsEditPage
 }
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default AppRouter
+export default ShoutoutsEditPage
 // ────────────────────────────────────────────────────────────────────────┘

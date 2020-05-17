@@ -64,13 +64,20 @@ const shoutoutsReducer = (state = [], action) => {
   }
 }
 
+const todaysShoutoutReducer = (state = [], action) => {
+  switch (action.type) {
+    case "UPDATE_TODAYS_SHOUTOUTS":
+      return action.payload.todaysShoutouts
+    default:
+      return state
+  }
+}
+
 const shoutoutIndexReducer = (state = 0, action) => {
   console.log(action)
   switch (action.type) {
     case "UPDATE_INDEX":
-      return action.payload.shoutoutIndex ?
-        action.payload.shoutoutIndex :
-        state
+      return action.payload.shoutoutIndex
     default:
       return state
   }
@@ -126,7 +133,8 @@ const store = createStore(
     shoutoutIndex: shoutoutIndexReducer,
     morningAssemblyItems: morningAssemblyItemsReducer,
     salesTargets: salesTargetsReducer,
-    shouldRenderAddMorningAssemblyItemModal: shouldRenderAddMorningAssemblyItemModalReducer
+    shouldRenderAddMorningAssemblyItemModal: shouldRenderAddMorningAssemblyItemModalReducer,
+    todaysShoutouts: todaysShoutoutReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 )
@@ -135,4 +143,3 @@ const store = createStore(
 // ───────────────────────────────────────────────────────── exports 📤 ───┐
 export default store
 // ────────────────────────────────────────────────────────────────────────┘
-

@@ -2,7 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import moment from 'moment';
+import $ from "jquery"
 
 import favicon from '../../public/img/favicon-180x180.png'
 import { updateShoutoutIndex } from '../redux-store/thunk';
@@ -13,7 +15,7 @@ import { updateShoutoutIndex } from '../redux-store/thunk';
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
 const Navbar = (props) => {
-  let { shoutouts, shoutoutIndex } = props
+  let { todaysShoutouts, shoutoutIndex } = props
 
 
   let navItems = [{
@@ -40,7 +42,9 @@ const Navbar = (props) => {
   ))
 
 
-
+  let onInfobarClick = (e) => {
+    $("editInfobar").modal('show')
+  }
 
   let navbar = (
     <nav className="lacoms-navbar sticky-top">
@@ -55,12 +59,17 @@ const Navbar = (props) => {
 
         <span id="clock">{moment().format('MMM[]D[  ]LT')}</span>
 
-
-          {/* {["apple", "bee"]} */}
-          {/* {Shoutouts[shoutoutIndex]} */}
-
-
-
+        <Link className={"infobar " + (todaysShoutouts[shoutoutIndex] ? todaysShoutouts[shoutoutIndex].bgColor : "")} to={"/shoutouts"}>
+          {todaysShoutouts[shoutoutIndex] ?
+            <div className="d-inline">
+              <span>{todaysShoutouts[shoutoutIndex].createdBy} </span>
+              <i className="far fa-comment"></i>
+            </div> :
+            <span></span>}
+          {todaysShoutouts[shoutoutIndex] ?
+            <span className="ml-2">{todaysShoutouts[shoutoutIndex].content}</span> :
+            <span></span>}
+        </Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
           <span className="navbar-toggler-icon"></span>
@@ -73,7 +82,7 @@ const Navbar = (props) => {
       </div>
     </nav>
   )
-  
+
 
 
   return navbar

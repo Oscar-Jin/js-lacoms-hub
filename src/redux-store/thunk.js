@@ -76,6 +76,15 @@ export const updateShouldRenderAddMorningAssemblyItemModal = (bool) => {
   }
 }
 
+export const updateTodaysShoutout = (newTodaysShoutouts) => {
+  return {
+    type: "UPDATE_TODAYS_SHOUTOUTS",
+    payload: {
+      todaysShoutouts: newTodaysShoutouts
+    }
+  }
+}
+
 // export const updateSalesTargetsLocalOnly = (salesTargets) => {
 //   return {
 //     type: "UPDATE_TARGETS",

@@ -10,7 +10,7 @@ import moment from 'moment';
 
 import 'bootstrap'
 import './style/styles.scss'
-import { syncStateAsync, updateShoutoutIndex } from './redux-store/thunk'
+import { syncStateAsync, updateShoutoutIndex, updateShoutoutsAsync, updateTodaysShoutout } from './redux-store/thunk'
 
 
 // ────────────────────────────────────────────────────────────────────────┘
@@ -43,12 +43,35 @@ setInterval(() => {
   }
 }, 1000)
 
-// setInterval(() => {
-//   let { shoutouts, shoutoutIndex } = store.getState()
-//   shoutoutIndex < shoutouts.length - 1 ?
-//     store.dispatch(updateShoutoutIndex(shoutoutIndex + 1)) :
-//     store.dispatch(updateShoutoutIndex(0))
-// }, 8000)
+
+
+
+
+setInterval(() => {
+  let shoutouts = store.getState().shoutouts
+  let shoutoutIndex = store.getState().shoutoutIndex
+
+  let filteredShoutouts = shoutouts.filter(shoutout => {
+    return moment(shoutout.dateToDisplay.toDate()).date() >= moment().date() || moment(shoutout.dateToDisplay.toDate()).month() > moment().month() || moment(shoutout.dateToDisplay.toDate()).year() > moment().year()
+  })
+
+  if (filteredShoutouts.length !== shoutouts.length) {
+    store.dispatch(updateShoutoutsAsync(filteredShoutouts))
+  }
+
+  let todaysShoutouts = store.getState().todaysShoutouts
+  let newTodaysShoutouts = shoutouts.filter(shoutout => moment().date() === moment(shoutout.dateToDisplay.toDate()).date())
+  if (newTodaysShoutouts.length != todaysShoutouts.length) {
+    console.log(newTodaysShoutouts.length, todaysShoutouts.length)
+    store.dispatch(updateTodaysShoutout(newTodaysShoutouts))
+  }
+
+  if (shoutoutIndex < todaysShoutouts.length - 1) {
+    store.dispatch(updateShoutoutIndex(shoutoutIndex + 1))
+  } else {
+    store.dispatch(updateShoutoutIndex(0))
+  }
+}, 9000)
 
 // ────────────────────────────────────────────────────────────────────────┘
 
