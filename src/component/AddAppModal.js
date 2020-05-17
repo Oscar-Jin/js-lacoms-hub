@@ -125,7 +125,7 @@ const AddAppModal = (props) => {
                 <label htmlFor="website-name" className="col-form-label">アプリ名：</label>
                 <input type="text" className="form-control" id="website-name" placeholder="Google Maps（例）" onChange={onAppNameChange} autoComplete="off" value={appName} />
                 <label htmlFor="website-url" className="col-form-label">URL：</label>
-                <input type="text" className="form-control" id="website-url" placeholder="https://www.google.com/maps" onChange={onAppURLChange} autoComplete="off" value={appURL} />
+                <input type="url" className="form-control" id="website-url" placeholder="https://www.google.com/maps" onChange={onAppURLChange} autoComplete="off" value={appURL} />
               </div>
 
               <div className="form-group">

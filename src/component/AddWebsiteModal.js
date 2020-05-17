@@ -89,7 +89,7 @@ const AddWebsiteModal = (props) => {
                 <label htmlFor="website-name" className="col-form-label">サイト名：</label>
                 <input type="text" className="form-control" id="website-name" placeholder="YouTube（例）" onChange={onWebsiteNameChange} autoComplete="off" value={websiteName} />
                 <label htmlFor="website-url" className="col-form-label">URL：</label>
-                <input type="text" className="form-control" id="website-url" placeholder="https://www.youtube.com/" onChange={onwebsiteURLChange} autoComplete="off" value={websiteURL} />
+                <input type="url" className="form-control" id="website-url" placeholder="https://www.youtube.com/" onChange={onwebsiteURLChange} autoComplete="off" value={websiteURL} />
               </div>
               <div className="form-group">
                 <div className="form-row">

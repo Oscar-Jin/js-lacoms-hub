@@ -20,8 +20,20 @@
   @extend .navbar;
   @extend .navbar-expand-lg;
   @extend .navbar-dark;
-  @extend .bg-success;
   @extend .p-1;
+
+  background: linear-gradient(
+    45deg,
+    rgba(185, 254, 144, 1) 0%,
+    rgba(255, 231, 120, 1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgb(99, 206, 36) 0%,
+    rgb(104, 207, 8) 100%
+  );
+  // background: rgb(191, 245, 59);
+  // background: linear-gradient(45deg, rgba(191, 245, 59, 1) 0%, rgb(37, 202, 73) 100%);
 }
 
 .lacoms-version {
@@ -89,12 +101,24 @@
 }
 
 .ExperimentsPage {
-  height: 100vh;
+  min-height: 100vh;
   background: rgb(249, 188, 255);
   background: linear-gradient(
     190deg,
     rgba(249, 188, 255, 0.3169642857142857) 0%,
     rgba(255, 191, 50, 0.39539565826330536) 100%
+  );
+}
+
+.MorningAssemblyPage {
+  min-height: 100vh;
+  // background: rgb(188,224,255);
+  // background: linear-gradient(0deg, rgba(188,224,255,0.3169642857142857) 0%, rgba(255,231,120,0.4458158263305322) 100%);
+  background: rgb(185, 254, 144);
+  background: linear-gradient(
+    45deg,
+    rgba(184, 254, 144, 0.089) 0%,
+    rgba(255, 230, 120, 0.178) 100%
   );
 }
 
@@ -215,6 +239,18 @@
   @extend .border-light;
   @extend .shadow-sm;
 }
+
+.carousel {
+  overflow: hidden;
+  border-radius: 10px !important;
+  transition: 0.20s;
+}
+
+.carousel:hover {
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+  transition: 0.10s;
+}
+
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ─────────────────────────────────────────────────────────── clock ⏱ ───┐
@@ -229,8 +265,8 @@
 
 // ───────────────────────────────────────────────────────── infobar 📟 ───┐
 #infobar {
-  @extend .px-2; 
-  background-color:rgba(30, 143, 255, 0.863);
+  @extend .px-2;
+  background-color: rgba(30, 143, 255, 0.863);
 
   border: 1px solid transparent;
   border-radius: 10px;
@@ -246,14 +282,14 @@
   // z-index: 1;
 }
 .fade-appear.fade-appear-active {
-opacity: 1;
-transition: opacity 100ms linear;
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 /* enter */
 .fade-enter {
-opacity: 0;
-z-index: 1;
+  opacity: 0;
+  z-index: 1;
 }
 .fade-enter.fade-enter-active {
   opacity: 1;
@@ -269,14 +305,14 @@ z-index: 1;
   transition: opacity 150ms linear;
 }
 .fade-exit-done {
-opacity: 0;
+  opacity: 0;
 }
 
 /* slide enter */
 .slide-enter {
-opacity: 0;
-transform: scale(0.97) translateY(5px);
-z-index: 1;
+  opacity: 0;
+  transform: scale(0.97) translateY(5px);
+  z-index: 1;
 }
 .slide-enter.slide-enter-active {
   opacity: 1;
@@ -288,7 +324,6 @@ z-index: 1;
 .slide-exit {
   opacity: 1;
   transform: scale(1) translateY(0);
-  
 }
 .slide-exit.slide-exit-active {
   opacity: 0;
@@ -296,16 +331,110 @@ z-index: 1;
   transition: opacity 1500ms linear, transform 1500ms ease-out;
 }
 .slide-exit-done {
-opacity: 0;
+  opacity: 0;
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
-
-.list-group-hover {
+// ─────────────────────────────────────────────────────── hover effect ───┐
+.transparent-list {
+  @extend .list-group-item;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 10px !important;
   color: #495057;
+  transition: 0.20s;
+
+  .url-tag {
+    color: transparent;
+    transition: 0.20s;
+  }
+
 }
 
-.list-group-hover:hover{
+.transparent-list:hover {
+  background-color: white !important;
   box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15) !important;
- z-index: 1;
-} 
+  z-index: 1;
+  transition: 0.10s;
+
+  .url-tag {
+    @extend .text-primary; 
+    transition: 0.10s;
+  }
+}
+
+.list-group-item-action:focus {
+  background-color: transparent;
+}
+
+.list-group-item-action:active {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  background-color: transparent;
+}
+
+// ────────────────────────────────────────────────────────────────────────┘
+
+.morningAseemblyChart {
+  @extend .p-3;
+  border-radius: 10px !important;
+  display: block !important;
+  transition: 0.20s;
+}
+
+.morningAseemblyChart:hover {
+  background-color: white;
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+  transition: 0.10s;
+  z-index: 1;
+}
+
+
+// ───────────────────────────────────────────────────────── text-color ───┐
+.text-ash {
+  color: rgba(218, 218, 218, 0.5);
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+.btn-colorless {
+  // @extend .text-secondary;
+  // @extend .border;
+  @extend .rounded;
+  border: none;
+  color: rgb(226, 226, 226);
+}
+
+// ───────────────────────────────── hide step arrows for input numbers ───┐
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+// ──────────────────────────────────────────────────────── placeholder ───┐
+.form-control::placeholder{
+  color: lightgray;
+}
+// ────────────────────────────────────────────────────────────────────────┘
+
+// ────────────────────────────────────────────────────────── pie chart ───┐
+.pie-chart {
+  @extend .m-3;
+  @extend .pt-3;
+  border-radius: 10px !important;
+  transition: 0.20s;
+}
+
+.pie-chart:hover {
+  background-color: white;
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+  transition: 0.10s;
+  z-index: 1;
+}
+// ────────────────────────────────────────────────────────────────────────┘

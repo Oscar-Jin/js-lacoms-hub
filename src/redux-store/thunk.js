@@ -46,6 +46,15 @@ export const updateMorningAssemblyItemsAsync = (newMorningAssemblyItems) => {
     }) 
   }
 }
+
+export const updateSalesTargetsAsync = (newSalesTargets) => {
+  return (dispatch) => {
+    db.collection("settings").doc("public").update({
+      salesTargets: newSalesTargets
+    })
+  }
+}
+
 // ────────────────────────────────────────────────────────────────────────┘ 
 
 // ───────────────────────────────────────────────── action creators 🐙 ───┐
@@ -57,4 +66,22 @@ export const updateShoutoutIndex = (index) => {
     }
   }
 }
+
+export const updateShouldRenderAddMorningAssemblyItemModal = (bool) => {
+  return {
+    type: "UPDATE_SHOULDRENDER",
+    payload: {
+      shouldRenderAddMorningAssemblyItemModal: bool
+    }
+  }
+}
+
+// export const updateSalesTargetsLocalOnly = (salesTargets) => {
+//   return {
+//     type: "UPDATE_TARGETS",
+//     payload: {
+//       salesTargets,
+//     }
+//   }
+// }
 // ────────────────────────────────────────────────────────────────────────┘

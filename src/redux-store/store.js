@@ -88,6 +88,29 @@ const morningAssemblyItemsReducer = (state = [], action) => {
   }
 }
 
+const salesTargetsReducer = (state = [], action) => {
+  switch (action.type) {
+    case "SYNC_STATE":
+      return action.payload.salesTargets ?
+        [...action.payload.salesTargets] :
+        state
+    // case "UPDATE_TARGETS":
+    //   console.log("UPDATE_TARGETS FIRED")
+    //   return action.payload.salesTargets
+    default:
+      return state
+  }
+}
+
+const shouldRenderAddMorningAssemblyItemModalReducer = (state = false, action) => {
+  //  console.log(action)
+  switch (action.type) {
+    case "UPDATE_SHOULDRENDER":
+      return action.payload.shouldRenderAddMorningAssemblyItemModal
+    default:
+      return state
+  }
+}
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -102,6 +125,8 @@ const store = createStore(
     shoutouts: shoutoutsReducer,
     shoutoutIndex: shoutoutIndexReducer,
     morningAssemblyItems: morningAssemblyItemsReducer,
+    salesTargets: salesTargetsReducer,
+    shouldRenderAddMorningAssemblyItemModal: shouldRenderAddMorningAssemblyItemModalReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 )

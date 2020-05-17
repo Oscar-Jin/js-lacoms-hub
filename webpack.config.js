@@ -9,6 +9,10 @@ const babel = {
   loader: 'babel-loader',
   options: {
     presets: ['@babel/env', '@babel/preset-react'],
+    plugins: [
+      ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    ]
   }
 }
 
