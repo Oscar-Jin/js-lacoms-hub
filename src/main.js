@@ -7,6 +7,8 @@ import AppRouter from './router/AppRouter'
 import store from './redux-store/store'
 import db from "./firebase/firestore"
 import moment from 'moment';
+import $ from 'jquery';
+
 
 import 'bootstrap'
 import './style/styles.scss'

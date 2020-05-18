@@ -114,7 +114,7 @@ const MorningAseemblyListGroup = (props) => {
   let AssemblyLists = morningAssemblyItems.map((item, index) => {
     if (item.url) {
       return (
-        <a href={item.url} className="list-group-item transparent-list list-group-item-action  " key={item.id}>
+        <a href={item.url} className="list-group-item transparent-list list-group-item-action" target="blank" key={item.id}>
           <div className="d-flex w-100 justify-content-between pl-1">
             <h4 className="mt-1">{`${index + 1}. ${item.title}`}</h4>
             <small className="url-tag">URL</small>
