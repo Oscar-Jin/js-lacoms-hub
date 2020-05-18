@@ -53,7 +53,7 @@ const Navbar = (props) => {
           <span className="">
             <img src={favicon}></img>
             <span>LACOMS-HUB</span>
-            <sup className="badge badge-light lacoms-version ml-2">1.0.9</sup>
+            <sup className="badge badge-light lacoms-version ml-2">1.1.0</sup>
           </span>
         </a>
 

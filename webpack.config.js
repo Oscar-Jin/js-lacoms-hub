@@ -85,7 +85,8 @@ module.exports = (env) => {
     devtool,
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     module: { rules },
-    plugins
+    plugins,
+    devServer: isProduction ? "" : devServer
   }
 }
 

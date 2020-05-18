@@ -18,7 +18,7 @@ const MorningAssemblyPage = (props) => {
 
       <AddMorningAssemblyItemModal />
       <RemoveMorningAssemblyItemModal />
-      {props.shouldRenderAddMorningAssemblyItemModal && <EditMorningAssemblyChartModal />}
+      <EditMorningAssemblyChartModal />
       <div className="pt-4 pb-1">
         <p className="text-center text-ash">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
       </div>
@@ -30,6 +30,6 @@ const MorningAssemblyPage = (props) => {
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default connect(state => state)(MorningAssemblyPage)
+export default MorningAssemblyPage
 // ────────────────────────────────────────────────────────────────────────┘
 

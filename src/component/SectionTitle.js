@@ -26,6 +26,11 @@ let SectionTitle = (props) => {
     setShowRemoveButton(false)
   }
 
+  let onMouseLeaveSlow = () => {
+    setTimeout(() => {
+      setShowRemoveButton(false)
+    }, 400)
+  }
 
   let sectionTitle = (
     <div className="SectionTitle">
@@ -36,12 +41,12 @@ let SectionTitle = (props) => {
         </div>
         {
           section.enableAdd &&
-          <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
-              <CSSTransition in={showRemoveButton} unmountOnExit timeout={200} classNames="fade" >
-                <button className="btn btn-lg mb-2" id="removeButton" onClick={onRemoveButtonClick}>
-                  <i className="fas fa-minus text-secondary"></i>
-                </button>
-              </CSSTransition>
+          <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} onTouchStart={onMouseOver} onTouchCancel={onMouseLeave} onTouchEnd={onMouseLeaveSlow}>
+            <CSSTransition in={showRemoveButton} unmountOnExit timeout={200} classNames="fade" >
+              <button className="btn btn-lg mb-2" id="removeButton" onClick={onRemoveButtonClick}>
+                <i className="fas fa-minus text-secondary"></i>
+              </button>
+            </CSSTransition>
             <button className="btn btn-lg mb-2" id="addButton" onClick={onAddButtonClick}>
               <i className="fas fa-plus text-secondary" />
             </button>

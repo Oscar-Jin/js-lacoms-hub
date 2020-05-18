@@ -82,6 +82,12 @@ const MorningAssemblyTitle = (props) => {
     setShowRemoveButton(false)
   }
 
+  let onMouseLeaveSlow = () => {
+    setTimeout(() => {
+      setShowRemoveButton(false)
+    }, 400)
+  }
+
 
   let morningAssemblyTitle = (
     <div className="d-flex justify-content-between align-items-end">
@@ -89,7 +95,7 @@ const MorningAssemblyTitle = (props) => {
         <h2 className="text-muted mt-5">おはようございます。本日の朝礼を始めましょう。</h2>
       </div>
       {
-        <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+        <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} onTouchStart={onMouseOver} onTouchCancel={onMouseLeave} onTouchEnd={onMouseLeaveSlow}>
           <CSSTransition in={showRemoveButton} unmountOnExit timeout={200} classNames="fade" >
             <button className="btn btn-lg" id="removeButton" onClick={onRemoveButtonClick}>
               <i className="fas fa-minus text-secondary"></i>

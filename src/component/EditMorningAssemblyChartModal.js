@@ -9,7 +9,7 @@ import { updateSalesTargetsAsync, updateShouldRenderAddMorningAssemblyItemModal 
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
 const EditMorningAssemblyChartModal = (props) => {
-  let { salesTargets, dispatch } = props
+  let { salesTargets } = props
 
 
   console.log("EditMorningAssemblyChartModal")
@@ -239,11 +239,15 @@ const EditMorningAssemblyChartModal = (props) => {
     </div>
   )
 
-  return modalForm
+  return (props.shouldRenderAddMorningAssemblyItemModal ? modalForm : <div></div>)
 }
 
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default connect(state => state)(EditMorningAssemblyChartModal)
+export default connect(state => ({
+  shouldRenderAddMorningAssemblyItemModal: state.shouldRenderAddMorningAssemblyItemModal,
+  salesTargets: state.salesTargets,
+  dispatch: state.dispatch
+}))(EditMorningAssemblyChartModal)
 // ────────────────────────────────────────────────────────────────────────┘
