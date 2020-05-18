@@ -182,7 +182,7 @@ const AddAppModal = (props) => {
                 <div className="form-row">
                   <div className="col">
                     <label className="col-form-label">カラー：</label><span id="app-color-drop" style={{ backgroundColor: colorHex }}>　</span>
-                    <GithubPicker onChangeComplete={onColorChangeComplete} triangle="hide" colors={['#dc3545', '#007bff', '#28a745', '#17a2b8', '#ffc107', '#0693E3', '#6c757d', '#343a40',]} />
+                    <GithubPicker onChangeComplete={onColorChangeComplete} triangle="hide" colors={['#dc3545', '#007bff', '#28a745', '#17a2b8', '#ffc107', '#6c757d', '#343a40',]} />
                   </div>
                   <div className="col">
                     <label htmlFor="user-name" className="col-form-label">講師：</label>
