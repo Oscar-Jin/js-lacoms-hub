@@ -79,14 +79,24 @@ const plugins = [
 module.exports = (env) => {
   const isProduction = (env === "production")
 
-  return {
-    entry,
-    output,
-    devtool,
-    devtool: isProduction ? 'source-map' : 'inline-source-map',
-    module: { rules },
-    plugins,
-    devServer: isProduction ? "" : devServer
+  if (isProduction) {
+    return {
+      entry,
+      output,
+      devtool: 'source-map',
+      module: { rules },
+      plugins
+    }
+    
+  } else {
+    return {
+      entry,
+      output,
+      devtool: 'inline-source-map',
+      module: { rules },
+      plugins,
+      devServer
+    }
   }
 }
 
