@@ -284,7 +284,7 @@ const MorningAseemblyPieChart = (props) => {
 
 
   let Charts = datas.map((data, index) => {
-    console.log(data)
+    // console.log(data)
     return (
       <div className="col pie-chart mt-3" key={JSON.stringify(data)}>
         <Chart type="pie" data={data} height="200" />
@@ -335,5 +335,9 @@ const MorningAseembly = (props) => {
 
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
-export default connect(state => state)(MorningAseembly)
+export default connect(state => ({
+  morningAssemblyItems: state.morningAssemblyItems,
+  salesTargets: state.salesTargets,
+  dispatch: state.dispatch
+}))(MorningAseembly)
 // ────────────────────────────────────────────────────────────────────────┘
