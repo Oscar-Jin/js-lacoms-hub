@@ -2,7 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -74,7 +74,7 @@ const plugins = [
     filename: 'styles.css',
   }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
-  new BundleAnalyzerPlugin(),
+  // new BundleAnalyzerPlugin(),
 ]
 // ────────────────────────────────────────────────────────────────────────┘
 
