@@ -7,14 +7,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
   <link rel="stylesheet" type="text/css" href="./dist/styles.css">
+  <style>
+    #spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+    }
+  </style>
   <title>LACOMS-HUB</title>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div id="spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+  </div>
   <script src="./dist/bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
 </body>
 
-</html> 
+</html>
