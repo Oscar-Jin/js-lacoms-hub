@@ -149,6 +149,10 @@
   @extend .Favorites;
 }
 
+.Settings {
+  @extend .Favorites;
+}
+
 .app-button {
   @extend .btn;
   @extend .btn-lg;
@@ -203,6 +207,19 @@
   .right-remove {
     border: 1px solid blue;
     height: 100%;
+  }
+}
+
+.instructor-list-group-item {
+  @extend .list-group-item;
+  border-color: whitesmoke;
+
+  .left-display {
+    width: 80%;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
@@ -490,4 +507,10 @@ input[type=number] {
   .rounded {
     border-radius: 10px !important;
   }
+}
+
+
+.settings-card {
+  @extend .shadow-sm;
+  border-radius: 10px !important;
 }

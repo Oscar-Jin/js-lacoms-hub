@@ -28,7 +28,7 @@ const Apps = (props) => {
   let apps = (
     <div className="container Apps">
       <SectionTitle section={section} />
-      <div className="row justify-content-center my-3">
+      <div className="row justify-content-center my-3 p-2">
         {Apps}
       </div>
     </div>

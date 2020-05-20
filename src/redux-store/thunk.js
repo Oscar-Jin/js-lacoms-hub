@@ -27,7 +27,15 @@ export const udateAppsAsync = (newApps) => {
   return (dispatch) => {
     db.collection("settings").doc("public").update({
       savedApps: newApps
-    }) 
+    })
+  }
+}
+
+export const updateInstructorsAsync = (newInstructors) => {
+  return (dispatch) => {
+    db.collection("settings").doc("public").update({
+      instructors: newInstructors
+    })
   }
 }
 
@@ -35,7 +43,7 @@ export const updateShoutoutsAsync = (newShoutouts) => {
   return (dispatch) => {
     db.collection("settings").doc("public").update({
       shoutouts: newShoutouts
-    }) 
+    })
   }
 }
 
@@ -43,7 +51,7 @@ export const updateMorningAssemblyItemsAsync = (newMorningAssemblyItems) => {
   return (dispatch) => {
     db.collection("settings").doc("public").update({
       morningAssemblyItems: newMorningAssemblyItems
-    }) 
+    })
   }
 }
 

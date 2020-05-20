@@ -3,6 +3,9 @@ import React from 'react'
 
 import Navbar from '../component/Navbar'
 import Experiments from '../component/Experiments'
+import Settings from '../component/Settiings'
+import AddInstructorModal from '../component/AddInstructorModal'
+import RemoveInstructorModal from '../component/RemoveInstructorModal'
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -12,7 +15,10 @@ const ExperimentsPage = (props) => {
     <div className="ExperimentsPage">
       <Navbar />
       <Experiments />
+      <Settings />
 
+      <AddInstructorModal />
+      <RemoveInstructorModal />
 
       <div className="pt-4 pb-1">
         <p className="text-center text-light">LACOMS-HUB &nbsp; MADE WITH LOVE BY OSCAR JIN</p>
