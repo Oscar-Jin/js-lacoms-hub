@@ -45,23 +45,23 @@ const html = {
   use: ["html-loader"]
 }
 
-const img = {
-  test: /\.(svg|png|jpe?g|gif)$/,
-  use: {
-    loader: "file-loader",
-    options: {
-      name: "[name].[ext]",
-      outputPath: "img"
-    }
-  }
-}
+// const img = {
+//   test: /\.(svg|png|jpe?g|gif)$/,
+//   use: {
+//     loader: "file-loader",
+//     options: {
+//       name: "[name].[ext]",
+//       outputPath: "img"
+//     }
+//   }
+// }
 
 const url = {
   test: /\.(png|jpg|gif)$/i,
   use: ['url-loader']
 }
 
-const rules = [babel, scss, img, html]
+const rules = [babel, scss, url, html]
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── config 👨‍🔧 ───┐
