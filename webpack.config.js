@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin')
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -76,6 +77,11 @@ const plugins = [
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
   // new BundleAnalyzerPlugin(),
 ]
+
+const optimization = {
+  minimize: true,
+  minimizer: [new TerserPlugin()],
+}
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── export 📤 ───┐
@@ -89,7 +95,8 @@ module.exports = (env) => {
       output,
       devtool: 'source-map',
       module: { rules },
-      plugins
+      plugins,
+      optimization,
     }
     
   } else {
