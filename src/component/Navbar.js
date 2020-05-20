@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment';
 import $ from "jquery"
 
-import favicon from '../../public/img/favicon-180x180.png'
-import { updateShoutoutIndex } from '../redux-store/thunk';
-
+import favicon from '../img/favicon-180x180.png'
 
 
 // ────────────────────────────────────────────────────────────────────────┘
@@ -53,7 +51,7 @@ const Navbar = (props) => {
           <span className="">
             <img src={favicon}></img>
             <span>LACOMS-HUB</span>
-            <sup className="badge badge-light lacoms-version ml-2">1.1.3</sup>
+            <sup className="badge badge-light lacoms-version ml-2">1.1.5</sup>
           </span>
         </a>
 

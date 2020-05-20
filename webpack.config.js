@@ -1,8 +1,8 @@
 // ───────────────────────────────────────────────────────── require 📥 ───┐
 const path = require('path')
 const webpack = require('webpack')
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin')
 
 // ────────────────────────────────────────────────────────────────────────┘
@@ -40,9 +40,20 @@ const scss = {
   }]
 }
 
+const html = {
+  test: /\.html$/,
+  use: ["html-loader"]
+}
+
 const img = {
-  test: /\.(png|svg|jpg|gif)$/,
-  use: ['file-loader']
+  test: /\.(svg|png|jpe?g|gif)$/,
+  use: {
+    loader: "file-loader",
+    options: {
+      name: "[name].[ext]",
+      outputPath: "img"
+    }
+  }
 }
 
 const url = {
@@ -50,19 +61,22 @@ const url = {
   use: ['url-loader']
 }
 
-const rules = [babel, scss, url]
+const rules = [babel, scss, img, html]
 // ────────────────────────────────────────────────────────────────────────┘
 
 // ────────────────────────────────────────────────────────── config 👨‍🔧 ───┐
-const entry = './src/main.js'
+const entry = {
+  main: './src/main.js',
+  vendor: './src/vendor.js',
+}
 
 const output = {
-  filename: 'bundle.js',
-  path: path.resolve(__dirname, 'public/dist')
+  filename: '[name].bundle.js',
+  path: path.resolve(__dirname, 'dist')
 }
 
 const devServer = {
-  contentBase: path.join(__dirname, "public/"),
+  contentBase: path.join(__dirname, "dist/"),
   port: 3003,
   publicPath: "http://localhost:3000/dist/",
   historyApiFallback: true
@@ -71,16 +85,18 @@ const devServer = {
 const devtool = 'inline-source-map'
 
 const plugins = [
-  new MiniCssExtractPlugin({
-    filename: 'styles.css',
-  }),
+  new MiniCssExtractPlugin({ filename: 'styles.css' }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
-  // new BundleAnalyzerPlugin(),
 ]
 
 const optimization = {
   minimize: true,
-  minimizer: [new TerserPlugin()],
+  minimizer: [
+    new TerserPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/template.html"
+    })
+  ],
 }
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -98,7 +114,7 @@ module.exports = (env) => {
       plugins,
       optimization,
     }
-    
+
   } else {
     return {
       entry,

@@ -6,11 +6,8 @@ import { Provider } from 'react-redux'
 import AppRouter from './router/AppRouter'
 import store from './redux-store/store'
 import db from "./firebase/firestore"
-import moment from 'moment';
-import $ from 'jquery';
+import moment from 'moment'
 
-
-import 'bootstrap'
 import './style/styles.scss'
 import { syncStateAsync, updateShoutoutIndex, updateShoutoutsAsync, updateTodaysShoutout } from './redux-store/thunk'
 
