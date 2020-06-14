@@ -28,4 +28,4 @@
     url: "https://docs.google.com/spreadsheets/d/13evTFxErYOqYhn-mogukWD1ho2PPNMtNew0pHB5sNRQ/edit#gid=1101536272",
     createdBy: "管理者",
     imgKey: "uneiPackage"
-  }],
+  }, ],
