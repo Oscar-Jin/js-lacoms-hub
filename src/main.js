@@ -44,7 +44,7 @@ ReactDOM.render(App, document.getElementById("root"))
 setInterval(() => {
   if (document.getElementById("clock")) {
     document.getElementById("clock").innerText = moment().format("MMM[]D[  ]LT")
-    console.log("tick tock")
+    // console.log("tick tock")
   }
 }, 1000)
 
@@ -67,7 +67,7 @@ setInterval(() => {
   let todaysShoutouts = store.getState().todaysShoutouts
   let newTodaysShoutouts = shoutouts.filter(shoutout => moment().date() === moment(shoutout.dateToDisplay.toDate()).date())
   if (newTodaysShoutouts.length != todaysShoutouts.length) {
-    console.log(newTodaysShoutouts.length, todaysShoutouts.length)
+    // console.log(newTodaysShoutouts.length, todaysShoutouts.length)
     store.dispatch(updateTodaysShoutout(newTodaysShoutouts))
   }
 

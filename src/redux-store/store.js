@@ -74,7 +74,7 @@ const todaysShoutoutReducer = (state = [], action) => {
 }
 
 const shoutoutIndexReducer = (state = 0, action) => {
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case "UPDATE_INDEX":
       return action.payload.shoutoutIndex

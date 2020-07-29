@@ -12,7 +12,7 @@ const EditMorningAssemblyChartModal = (props) => {
   let { salesTargets } = props
 
 
-  console.log("EditMorningAssemblyChartModal")
+  // console.log("EditMorningAssemblyChartModal")
 
   // let salesTargetTitles = salesTargets.map(target => target.title)
   // let salesTargetDataLabels = salesTargets.map(target => target.dataLabel)
@@ -21,7 +21,7 @@ const EditMorningAssemblyChartModal = (props) => {
   // let salesTargetTargetNumbers = salesTargets.map(target => target.targetNumber)
   // let salesTargetBorderColors = salesTargets.map(target => target.borderColor)
 
-  const [titles, setTitles] = useState([...salesTargets.map(target => (!!target.title ? target.title : '' ))])
+  const [titles, setTitles] = useState([...salesTargets.map(target => (!!target.title ? target.title : ''))])
   const [dataLabels, setDataLabels] = useState([...salesTargets.map(target => (!!target.dataLabel ? target.dataLabel : ''))])
   const [dataLocalArrays, setDataLocalArrays] = useState([...salesTargets.map(target => (!!target.dataArray ? [...target.dataArray] : []))])
   const [targetLabels, setTargetLabels] = useState(salesTargets.map(target => (!!target.targetLabel ? target.targetLabel : '')))
@@ -61,7 +61,7 @@ const EditMorningAssemblyChartModal = (props) => {
     let monthIndex = parseInt(elementId.slice(-2, elementId.length))
 
     let newLocalDataArrays = [...dataLocalArrays]
-    newLocalDataArrays[sectionIndex][monthIndex] = e.target.value == "" ?  "" : parseInt(e.target.value)
+    newLocalDataArrays[sectionIndex][monthIndex] = e.target.value == "" ? "" : parseInt(e.target.value)
 
     setDataLocalArrays(newLocalDataArrays)
   }
@@ -111,7 +111,7 @@ const EditMorningAssemblyChartModal = (props) => {
         break
       default:
         newBorderColors[index] = "#212529"
-    } 
+    }
 
     setBorderColors(newBorderColors)
   }
@@ -155,7 +155,7 @@ const EditMorningAssemblyChartModal = (props) => {
             <div className="col">
               <div className="btn-group btn-group-toggle m-1" data-toggle="buttons" >
                 <label type="button" className={"btn btn-outline-danger btn-colorless " + (borderColors[index] === "#f24959" ? "active" : "")}>
-                  <input type="radio" name="options" className={"bcSect" + index} id="bc-red" autoComplete="off" onClick={onBorderColorChange}/>赤
+                  <input type="radio" name="options" className={"bcSect" + index} id="bc-red" autoComplete="off" onClick={onBorderColorChange} />赤
                 </label>
                 <label type="button" className={"btn btn-outline-primary btn-colorless " + (borderColors[index] === "#248eff" ? "active" : "")}>
                   <input type="radio" name="options" className={"bcSect" + index} id="bc-blue" autoComplete="off" onClick={onBorderColorChange} />青
@@ -167,7 +167,7 @@ const EditMorningAssemblyChartModal = (props) => {
                   <input type="radio" name="options" className={"bcSect" + index} id="bc-yellow" autoComplete="off" onClick={onBorderColorChange} />黄
                 </label>
                 <label type="button" className={"btn btn-outline-dark btn-colorless " + (borderColors[index] === "#212529" ? "active" : "")}>
-                  <input type="radio" name="options" className={"bcSect" + index} id="bc-black" autoComplete="off"  onClick={onBorderColorChange}/>黒
+                  <input type="radio" name="options" className={"bcSect" + index} id="bc-black" autoComplete="off" onClick={onBorderColorChange} />黒
                 </label>
               </div>
             </div>

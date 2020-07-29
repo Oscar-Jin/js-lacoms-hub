@@ -29,7 +29,7 @@ const AddShoutoutModal = (props) => {
 
 
   let ondateToDisplayChange = (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setdateToDisplay(e.target.value)
   }
 
@@ -38,7 +38,7 @@ const AddShoutoutModal = (props) => {
   }
 
   let onBgColorChange = (e) => {
-    console.log(e.target.id)
+    // console.log(e.target.id)
     let newBgColor = ""
 
     switch (e.target.id) {

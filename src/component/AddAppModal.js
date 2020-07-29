@@ -31,29 +31,29 @@ const AddAppModal = (props) => {
 
   let onAppNameChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setAppName(userInput)
   }
   let onAppURLChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setAppURL(userInput)
   }
   let onIconChange = (e) => {
     const iconId = e.target.id
-    console.log(iconId)
+    // console.log(iconId)
     setFavicon("fas " + iconId)
   }
   let onInstructorNameChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setInstructorName(userInput)
   }
 
   let onColorChangeComplete = (color, event) => {
     const selectedColor = color.hex
     document.getElementById("app-color-drop").style.backgroundColor = selectedColor
-    console.log(selectedColor)
+    // console.log(selectedColor)
     setColorHex(selectedColor)
   }
 
@@ -132,47 +132,47 @@ const AddAppModal = (props) => {
                 <label htmlFor="icon-picker" className="col-form-label">Icon：</label><br />
                 <div className="btn-group btn-group-toggle" data-toggle="buttons" id="icon-picker">
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-address-book" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-address-book" onClick={onIconChange} />
                     <i className="fas fa-address-book"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-book-open" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-book-open" onClick={onIconChange} />
                     <i className="fas fa-book-open"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-bookmark" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-bookmark" onClick={onIconChange} />
                     <i className="fas fa-bookmark"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-box-open" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-box-open" onClick={onIconChange} />
                     <i className="fas fa-box-open"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-calendar" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-calendar" onClick={onIconChange} />
                     <i className="fas fa-calendar"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-camera" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-camera" onClick={onIconChange} />
                     <i className="fas fa-camera"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-clipboard" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-clipboard" onClick={onIconChange} />
                     <i className="fas fa-clipboard"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-folder" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-folder" onClick={onIconChange} />
                     <i className="fas fa-folder"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-grin" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-grin" onClick={onIconChange} />
                     <i className="fas fa-grin"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-grip-horizontal" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-grip-horizontal" onClick={onIconChange} />
                     <i className="fas fa-grip-horizontal"></i>
                   </label>
                   <label className="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="fa-square" onClick={onIconChange}/>
+                    <input type="radio" name="options" id="fa-square" onClick={onIconChange} />
                     <i className="fas fa-square"></i>
                   </label>
                 </div>

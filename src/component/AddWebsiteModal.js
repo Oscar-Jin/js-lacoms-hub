@@ -27,24 +27,24 @@ const AddWebsiteModal = (props) => {
 
   let onWebsiteNameChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setWebsiteName(userInput)
   }
   let onwebsiteURLChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setWebsiteURL(userInput)
   }
   let onInstructorNameChange = (e) => {
     const userInput = e.target.value
-    console.log(userInput)
+    // console.log(userInput)
     setInstructorName(userInput)
   }
 
   let onColorChangeComplete = (color, event) => {
     const selectedColor = color.hex
     document.getElementById("color-drop").style.backgroundColor = selectedColor
-    console.log(selectedColor)
+    // console.log(selectedColor)
     setColorHex(selectedColor)
   }
 
@@ -94,8 +94,8 @@ const AddWebsiteModal = (props) => {
               <div className="form-group">
                 <div className="form-row">
                   <div className="col">
-                    <label className="col-form-label">カラー：</label><span id="color-drop" style={{backgroundColor: colorHex}}>　</span>
-                    <GithubPicker onChangeComplete={onColorChangeComplete} triangle="hide" colors={['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF','#111111']}/>
+                    <label className="col-form-label">カラー：</label><span id="color-drop" style={{ backgroundColor: colorHex }}>　</span>
+                    <GithubPicker onChangeComplete={onColorChangeComplete} triangle="hide" colors={['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF', '#111111']} />
                   </div>
                   <div className="col">
                     <label htmlFor="user-name" className="col-form-label">講師：</label>
