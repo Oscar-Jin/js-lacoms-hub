@@ -25,6 +25,10 @@ const Navbar = (props) => {
     icon: "fas fa-flask fa-lg d-block mx-auto",
     path: "/experiments"
   }, {
+    title: "Shoutouts",
+    icon: "fas fa-comment fa-lg d-block mx-auto",
+    path: "/shoutouts"
+  }, {
     title: "Tasks",
     icon: "fas fa-tasks fa-lg d-block mx-auto",
     path: "/tasks"
