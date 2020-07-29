@@ -1,4 +1,5 @@
 // ────────────────────────────────────────────────────────── import 📥 ───┐
+import google from "../img/google.jpg";
 import googleCalendar from "../img/google-calendar.jpg";
 import googleSpreadsheet from "../img/google-spreadsheet-3.jpg";
 import henkoForm from "../img/henko-form.jpg";
@@ -14,6 +15,7 @@ import studentCenter from "../img/lacoms-student-center.jpg";
 
 // ─────────────────────────────────────────────────────────── setup 🏗 ───┐
 let img = {
+  google,
   googleCalendar,
   googleSpreadsheet,
   henkoForm,
