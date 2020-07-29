@@ -1,6 +1,8 @@
 // ───────────────────────────────────────────────────────── require 📥 ───┐
 const path = require('path')
 const webpack = require('webpack')
+
+const CopyPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
@@ -73,7 +75,7 @@ const entry = {
 const output = {
   filename: '[name].bundle.js',
   path: path.resolve(__dirname, 'dist'),
-  // publicPath: path.resolve(__dirname, 'public')
+  publicPath: path.resolve(__dirname, 'public')
 }
 
 const devServer = {
@@ -88,15 +90,20 @@ const devtool = 'inline-source-map'
 const plugins = [
   new MiniCssExtractPlugin({ filename: 'styles.css' }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+  new CopyPlugin({
+    patterns: [
+      { from: 'public', to: './' },
+    ],
+  }),
 ]
 
 const optimization = {
   minimize: true,
   minimizer: [
     new TerserPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./src/template.html"
-    })
+    // new HtmlWebpackPlugin({
+    //   template: "./src/template.html"
+    // })
   ],
 }
 // ────────────────────────────────────────────────────────────────────────┘
