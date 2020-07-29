@@ -23,6 +23,10 @@ const MorningAssemblyNavbar = (props) => {
     icon: "fas fa-flask fa-lg d-block mx-auto",
     path: "/experiments"
   }, {
+    title: "Shoutouts",
+    icon: "fas fa-comment fa-lg d-block mx-auto",
+    path: "/shoutouts"
+  }, {
     title: "Tasks",
     icon: "fas fa-tasks fa-lg d-block mx-auto",
     path: "/tasks"
@@ -303,10 +307,10 @@ const MorningAseemblyPieChart = (props) => {
 
 
   return (
-  //   <div className="" key={JSON.stringify(sampleData)}>
-  //   <Chart type="pie" data={sampleData} height="100" />
-  //   <p className="text-center">達成率：{Math.round(12 / 46 * 100)}%</p>
-  // </div >
+    //   <div className="" key={JSON.stringify(sampleData)}>
+    //   <Chart type="pie" data={sampleData} height="100" />
+    //   <p className="text-center">達成率：{Math.round(12 / 46 * 100)}%</p>
+    // </div >
 
     <div className="row">
       {Charts}
@@ -327,7 +331,7 @@ const MorningAseembly = (props) => {
         <hr /><br />
         <MorningAseemblyListGroup morningAssemblyItems={props.morningAssemblyItems} />
         <MorningAseemblyCarousel />
-        <MorningAseemblyChart salesTargets={props.salesTargets} dispatch={props.dispatch}/>
+        <MorningAseemblyChart salesTargets={props.salesTargets} dispatch={props.dispatch} />
         <MorningAseemblyPieChart salesTargets={props.salesTargets} />
       </div>
     </div>
