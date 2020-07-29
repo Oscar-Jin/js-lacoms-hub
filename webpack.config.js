@@ -73,6 +73,7 @@ const entry = {
 const output = {
   filename: '[name].bundle.js',
   path: path.resolve(__dirname, 'dist')
+  publicPath: path.resolve(__dirname, 'public')
 }
 
 const devServer = {
