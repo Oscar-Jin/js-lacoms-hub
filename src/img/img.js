@@ -7,7 +7,8 @@ import lineWorks from "../img/line-works.jpg";
 import morningAssembly from "../img/morning-assembly.jpg";
 import kanriAdmin from "../img/spreadsheet-kanriAdmin-1.jpg";
 import uneiPackage from "../img/unei-package.jpg";
-import poleStar from "../img/pole-star.jpg";
+import poleStar from "../img/lacoms-pole-star.jpg";
+import studentCenter from "../img/lacoms-student-center.jpg";
 
 // ────────────────────────────────────────────────────────────────────────┘
 
@@ -22,6 +23,7 @@ let img = {
   kanriAdmin,
   uneiPackage,
   poleStar,
+  studentCenter,
 };
 // ────────────────────────────────────────────────────────────────────────┘
 

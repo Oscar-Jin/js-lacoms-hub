@@ -60,7 +60,7 @@ const Card = (props) => {
       return link
     default:
       return (
-        <h1>ERROR: Undefined Card Ttpe </h1>
+        <h1>ERROR: Undefined Card Type </h1>
       )
   }
 }
